@@ -1,0 +1,883 @@
+/* ============================================================
+   WeIntern Week 1 — Task 3: CSS Challenge
+   style.css — Design System + All Layouts + Animations
+   ============================================================ */
+
+/* ────────────────────────────────────────
+   1. CSS VARIABLES — DESIGN TOKENS
+──────────────────────────────────────── */
+:root {
+  /* Color Palette */
+  --bg:           #faf6f1;
+  --surface:      #ffffff;
+  --surface2:     #f2ebe0;
+  --border:       #e0d0bc;
+  --accent:       #5c3317;
+  --accent2:      #9c6b3c;
+  --accent-light: #d4a574;
+  --text:         #2c1810;
+  --muted:        #8a7060;
+
+  /* Derived / Utility */
+  --accent-rgb:   92, 51, 23;
+  --shadow-sm:    0 2px 8px rgba(92, 51, 23, 0.08);
+  --shadow-md:    0 8px 24px rgba(92, 51, 23, 0.12);
+  --shadow-lg:    0 20px 48px rgba(92, 51, 23, 0.18);
+  --shadow-hover: 0 16px 40px rgba(92, 51, 23, 0.20);
+
+  /* Border Radius */
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-pill: 100px;
+
+  /* Spacing Scale */
+  --space-xs:  8px;
+  --space-sm:  16px;
+  --space-md:  24px;
+  --space-lg:  48px;
+  --space-xl:  80px;
+
+  /* Transition */
+  --transition-fast: 0.2s ease;
+  --transition-med:  0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition-slow: 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ────────────────────────────────────────
+   2. RESET & BASE STYLES
+──────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ────────────────────────────────────────
+   3. ACCESSIBILITY — FOCUS STYLES
+──────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--accent-light);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ────────────────────────────────────────
+   4. LAYOUT UTILITIES
+──────────────────────────────────────── */
+.container {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+/* ────────────────────────────────────────
+   5. TYPOGRAPHY SCALE
+──────────────────────────────────────── */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--accent);
+}
+
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--accent);
+}
+
+/* ────────────────────────────────────────
+   6. SHARED SECTION STYLES
+──────────────────────────────────────── */
+.section {
+  padding-block: var(--space-xl);
+}
+
+.section--alt {
+  background-color: var(--surface2);
+}
+
+.section-header {
+  margin-bottom: var(--space-lg);
+  max-width: 600px;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: var(--space-xs);
+}
+
+.section-title {
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ────────────────────────────────────────
+   7. SHARED BUTTON STYLES
+──────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 11px 24px;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--surface);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent2);
+  border-color: var(--accent2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.35);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Outline Button */
+.btn-outline {
+  background-color: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: var(--surface);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.25);
+}
+
+.btn-outline:active {
+  transform: scale(0.97);
+}
+
+/* Small Button Modifier */
+.btn--sm {
+  font-size: 0.75rem;
+  padding: 8px 18px;
+}
+
+/* ────────────────────────────────────────
+   8. SITE HEADER
+──────────────────────────────────────── */
+.site-header {
+  text-align: center;
+  padding: 80px 24px 64px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative background texture */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(212, 165, 116, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.header-badge {
+  display: inline-block;
+  background: rgba(92, 51, 23, 0.08);
+  color: var(--accent);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(92, 51, 23, 0.2);
+  margin-bottom: 20px;
+}
+
+.header-title {
+  margin-bottom: 14px;
+}
+
+.header-subtitle {
+  color: var(--muted);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  max-width: 560px;
+  margin-inline: auto;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* Navigation Pills */
+.header-nav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-pill {
+  display: inline-block;
+  padding: 9px 22px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface2);
+  color: var(--accent);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.nav-pill:hover {
+  background-color: var(--accent);
+  color: var(--surface);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ════════════════════════════════════════
+   CHALLENGE 1: FLEXBOX LAYOUT
+════════════════════════════════════════ */
+
+/* Flex container */
+.flex-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Individual flex card */
+.flex-card {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 28px 28px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform var(--transition-med),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-med);
+}
+
+/* Card hover glow overlay */
+.flex-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 165, 116, 0.08) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-med);
+  pointer-events: none;
+}
+
+.flex-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-light);
+  box-shadow: var(--shadow-hover);
+}
+
+.flex-card:hover::before {
+  opacity: 1;
+}
+
+/* Card elements */
+.card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+  display: block;
+  line-height: 1;
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  flex: 1; /* pushes badge + actions to bottom */
+}
+
+.card-badge {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 18px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  background-color: rgba(156, 107, 60, 0.1);
+  border: 1px solid rgba(156, 107, 60, 0.3);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+/* Responsive — Tablet */
+@media (max-width: 899px) {
+  .flex-card {
+    flex: 1 1 calc(50% - 10px);
+  }
+}
+
+/* Responsive — Mobile */
+@media (max-width: 599px) {
+  .flex-card {
+    flex: 1 1 100%;
+  }
+}
+
+/* ════════════════════════════════════════
+   CHALLENGE 2: CSS GRID GALLERY
+════════════════════════════════════════ */
+
+/* Grid container */
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* Individual grid card */
+.grid-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 20px 22px;
+  cursor: pointer;
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Cards 1 and 5 span two columns on desktop */
+.grid-card--span {
+  grid-column: span 2;
+}
+
+.grid-card:hover {
+  transform: scale(1.04);
+  background-color: var(--surface2);
+  border-color: var(--accent-light);
+  box-shadow: var(--shadow-md);
+}
+
+/* Grid card elements */
+.grid-icon {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.grid-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.grid-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+/* Remove spanning on tablet and mobile */
+@media (max-width: 699px) {
+  .grid-card--span {
+    grid-column: span 1;
+  }
+
+  .grid-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .grid-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ════════════════════════════════════════
+   CHALLENGE 3: ANIMATION SHOWCASE
+════════════════════════════════════════ */
+
+/* Animation grid */
+.anim-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* Animation box */
+.anim-box {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 24px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Full-width box — underline nav spans the row */
+.anim-box--full {
+  grid-column: 1 / -1;
+}
+
+.anim-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.anim-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────
+   Animation 1: BUTTON HOVER
+───────────────────────────── */
+.btn-hover-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--accent);
+  color: var(--surface);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+/* White overlay that fades in on hover */
+.btn-hover-demo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.25s ease;
+}
+
+.btn-hover-demo:hover {
+  background-color: var(--accent2);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 32px rgba(var(--accent-rgb), 0.45);
+}
+
+.btn-hover-demo:hover::after {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-hover-demo:active {
+  transform: scale(0.97);
+}
+
+/* ─────────────────────────────
+   Animation 2: LOADING SPINNER
+───────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-opacity {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.spinner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.85s linear infinite;
+  flex-shrink: 0;
+}
+
+.spinner-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  animation: pulse-opacity 1.5s ease-in-out infinite;
+}
+
+/* ─────────────────────────────
+   Animation 3: FADE-IN REVEAL
+───────────────────────────── */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+  max-width: 220px;
+}
+
+.fade-bar {
+  height: 11px;
+  width: var(--width, 80%);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    90deg,
+    var(--accent-light),
+    var(--accent)
+  );
+  opacity: 0;
+  transform: translateX(-18px);
+  animation: fadeSlideIn 0.5s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* ─────────────────────────────
+   Animation 4: CARD LIFT
+───────────────────────────── */
+.lift-card {
+  background: linear-gradient(
+    135deg,
+    var(--surface2),
+    var(--border)
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 22px 20px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  transition:
+    transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.32s ease;
+}
+
+.lift-card:hover {
+  transform: translateY(-12px) rotate(-0.5deg);
+  box-shadow:
+    0 28px 56px rgba(var(--accent-rgb), 0.22),
+    0 0 0 1px rgba(212, 165, 116, 0.5);
+}
+
+.lift-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 8px;
+}
+
+.lift-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ─────────────────────────────
+   Animation 5: UNDERLINE NAV
+───────────────────────────── */
+.underline-nav {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.underline-link {
+  position: relative;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 5px;
+  transition: color var(--transition-fast);
+}
+
+/* Animated underline via ::after pseudo-element */
+.underline-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent);
+  border-radius: 2px;
+  transition: width var(--transition-med);
+}
+
+.underline-link:hover {
+  color: var(--accent);
+}
+
+.underline-link:hover::after {
+  width: 100%;
+}
+
+/* ════════════════════════════════════════
+   SITE FOOTER
+════════════════════════════════════════ */
+.site-footer {
+  background-color: var(--accent);
+  color: var(--surface2);
+  padding: 32px 24px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.footer-text strong {
+  color: var(--accent-light);
+}
+
+.footer-sub {
+  font-size: 0.78rem;
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ════════════════════════════════════════
+   TOAST NOTIFICATION
+════════════════════════════════════════ */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background-color: var(--accent);
+  color: var(--surface);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 28px rgba(var(--accent-rgb), 0.4);
+  transition:
+    transform 0.38s cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 0.38s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+.toast.toast--visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — GLOBAL ADJUSTMENTS
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .section {
+    padding-block: 56px;
+  }
+
+  .anim-box--full {
+    grid-column: span 1;
+  }
+
+  .underline-nav {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 56px 24px 48px;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

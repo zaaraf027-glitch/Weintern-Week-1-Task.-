@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zaara Firdaus — Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── ANIMATED BACKGROUND ── -->
+  <div class="mesh-background">
+    <div class="mesh-sphere sphere-1"></div>
+    <div class="mesh-sphere sphere-2"></div>
+  </div>
+
+  <!-- ── NAVIGATION ── -->
+  <nav class="glass-nav">
+    <a href="#hero" class="nav-logo">DevPortfolio</a>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#portfolio">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#">Resume</a></li>
+    </ul>
+    <!-- Mobile hamburger -->
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero" class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Zaara Firdaus</span>
+        </h1>
+        <p class="hero-subtitle">
+          Full Stack Developer. I build clean, responsive web experiences with technical precision.
+        </p>
+        <div class="hero-btns">
+          <a href="#portfolio" class="btn-primary">View My Work →</a>
+          <a href="#" class="btn-secondary">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" class="section-container">
+    <div class="about-grid">
+
+      <!-- Left column: Bio + Education -->
+      <div class="about-left-col">
+
+        <!-- Bio Card -->
+        <div class="glass-card bio-card">
+          <div class="section-tag">Who I Am</div>
+          <h2 class="section-title" style="margin-bottom:1.2rem">About Me</h2>
+          <p class="about-text">
+            I am a developer who believes in the intersection of technical robustness and accessible design.
+            My approach centers on creating user interfaces that are not only visually polished but also
+            fundamentally inclusive and performance-optimized.
+          </p>
+        </div>
+
+        <!-- Education Card -->
+        <div class="glass-card education-card">
+          <h3 class="card-inner-title">Education</h3>
+          <div class="education-item">
+            <div class="edu-icon-wrapper">
+              <span class="edu-card-icon">🎓</span>
+            </div>
+            <div class="edu-details">
+              <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+              <div class="edu-status">Currently Pursuing</div>
+              <div class="edu-institution">Mahatma Gandhi Kashi Vidyapeeth</div>
+              <div class="edu-timeline">2024 – 2027</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right column: Tech Stack -->
+      <div class="glass-card tech-card-panel">
+        <div class="section-tag">Technologies</div>
+        <h2 class="section-title" style="margin-bottom:0.6rem">My Tech Stack</h2>
+        <p class="tech-panel-desc">Languages, tools and frameworks I work with.</p>
+        <div class="tech-grid">
+          <div class="tech-badge">
+            <span class="tech-badge-icon">🌐</span>
+            <span class="tech-badge-name">HTML</span>
+          </div>
+          <div class="tech-badge">
+            <span class="tech-badge-icon">🎨</span>
+            <span class="tech-badge-name">CSS</span>
+          </div>
+          <div class="tech-badge">
+            <span class="tech-badge-icon">⚡</span>
+            <span class="tech-badge-name">JavaScript</span>
+          </div>
+          <div class="tech-badge">
+            <span class="tech-badge-icon">⚙️</span>
+            <span class="tech-badge-name">C</span>
+          </div>
+          <div class="tech-badge">
+            <span class="tech-badge-icon">🔧</span>
+            <span class="tech-badge-name">C++</span>
+          </div>
+          <div class="tech-badge">
+            <span class="tech-badge-icon">🐙</span>
+            <span class="tech-badge-name">Git</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PORTFOLIO ── -->
+  <section id="portfolio" class="section-container">
+    <div class="section-header">
+      <div class="section-tag">Portfolio</div>
+      <h2 class="section-title">Selected Works</h2>
+      <p class="section-desc">A curation of projects demonstrating problem-solving through clean code and user-centric architecture.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- HER CYCLE -->
+      <div class="project-card"
+           onclick="window.open('https://hercycle-ai.vercel.app/', '_blank')"
+           title="Click to view HER CYCLE live demo">
+        <div class="project-thumb-placeholder bg-indigo-gradient">
+          <span class="placeholder-icon">🩷</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag teal">AI / ML</span>
+            <span class="tag">Health Tech</span>
+            <span class="tag">Full Stack</span>
+          </div>
+          <div class="project-name">
+            <a href="https://hercycle-ai.vercel.app/" target="_blank"
+               onclick="event.stopPropagation();">HER CYCLE ↗</a>
+          </div>
+          <p class="project-desc">
+            An AI-powered menstrual health companion that provides smart cycle tracking,
+            predictions, and personalized wellness insights.
+          </p>
+          <div class="project-links">
+            <a href="https://hercycle-ai.vercel.app/" target="_blank"
+               onclick="event.stopPropagation();" class="btn-card-link">Live Demo ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smart City AQI Monitor -->
+      <div class="project-card"
+           onclick="window.open('https://pollutree-monitor.vercel.app/', '_blank')"
+           title="Click to view Smart City AQI Monitor live demo">
+        <div class="project-thumb-placeholder bg-cyan-gradient">
+          <span class="placeholder-icon">🌿</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag teal">IoT</span>
+            <span class="tag">Data Viz</span>
+            <span class="tag">Environment</span>
+          </div>
+          <div class="project-name">
+            <a href="https://pollutree-monitor.vercel.app/" target="_blank"
+               onclick="event.stopPropagation();">Smart City AQI Monitor ↗</a>
+          </div>
+          <p class="project-desc">
+            A real-time Air Quality Index monitoring dashboard for smart cities with
+            interactive maps and pollution trend analytics.
+          </p>
+          <div class="project-links">
+            <a href="https://pollutree-monitor.vercel.app/" target="_blank"
+               onclick="event.stopPropagation();" class="btn-card-link">Live Demo ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="section-container">
+    <div class="contact-panel-container glass-card">
+      <div class="contact-header">
+        <div class="section-tag">Say Hello</div>
+        <h2 class="contact-title">Get In Touch</h2>
+        <p class="contact-subtitle">
+          I'm always open to discussing new projects, creative ideas, or opportunities
+          to be part of your visions.
+        </p>
+      </div>
+
+      <div class="contact-content-grid">
+
+        <!-- Contact info -->
+        <div class="comm-details">
+          <a href="mailto:zaaraf027@gmail.com" class="comm-card">
+            <div class="comm-icon-wrapper">✉️</div>
+            <div class="comm-info">
+              <span class="comm-label">Email</span>
+              <span class="comm-value">zaaraf027@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/zaara-firdaus-22272a3a5" target="_blank" class="comm-card">
+            <div class="comm-icon-wrapper">💼</div>
+            <div class="comm-info">
+              <span class="comm-label">LinkedIn</span>
+              <span class="comm-value">zaara-firdaus-22272a3a5</span>
+            </div>
+          </a>
+          <a href="https://github.com/zaaraf027-glitch" target="_blank" class="comm-card">
+            <div class="comm-icon-wrapper">💻</div>
+            <div class="comm-info">
+              <span class="comm-label">GitHub</span>
+              <span class="comm-value">zaaraf027-glitch</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Contact form -->
+        <div class="contact-form-panel">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="John Doe" />
+            </div>
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="john@example.com" />
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" placeholder="How can I help?" />
+          </div>
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell me about your project..."></textarea>
+          </div>
+          <button class="btn-send">Send Message</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="glass-footer">
+    <div class="footer-top">
+      <div class="footer-brand">DevPortfolio</div>
+      <div class="footer-socials">
+        <a href="https://github.com/zaaraf027-glitch" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/zaara-firdaus-22272a3a5" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Zaara Firdaus. All rights reserved.</span>
+      <span class="footer-meta">Built with precision.</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

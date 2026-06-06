@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WeIntern Week 1 — Task 3: CSS Challenge showcasing Flexbox, CSS Grid, and Animation skills." />
+  <title>CSS Challenge — WeIntern Week 1 · Task 3</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════
+       SITE HEADER
+  ════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <div class="header-badge">WeIntern · Week 1 · Task 3</div>
+      <h1 class="header-title">CSS Challenge</h1>
+      <p class="header-subtitle">
+        A professional showcase of Flexbox, CSS Grid, and Animation — built with pure HTML, CSS &amp; JavaScript.
+      </p>
+
+      <!-- Navigation -->
+      <nav class="header-nav" aria-label="Challenge sections">
+        <a href="#flexbox" class="nav-pill">Flexbox</a>
+        <a href="#grid" class="nav-pill">Grid</a>
+        <a href="#animations" class="nav-pill">Animations</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ════════════════════════════════════════
+         SECTION 1 — FLEXBOX CHALLENGE
+    ════════════════════════════════════════ -->
+    <section id="flexbox" class="section" aria-labelledby="flexbox-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" aria-hidden="true">Exercise 01</span>
+          <h2 class="section-title" id="flexbox-heading">Flexbox Card Layout</h2>
+          <p class="section-desc">
+            A responsive feature card row built with Flexbox. Three columns on desktop, two on tablet, and a single column on mobile — with smooth hover interactions.
+          </p>
+        </div>
+
+        <!-- Flexbox Card Row -->
+        <div class="flex-row" role="list">
+
+          <!-- Card 1 -->
+          <article class="flex-card" role="listitem">
+            <span class="card-icon" aria-hidden="true">⚡</span>
+            <h3 class="card-title">Fast Performance</h3>
+            <p class="card-desc">
+              Optimised for speed with lazy loading, efficient rendering pipelines, and minimal bundle sizes for instant page loads.
+            </p>
+            <span class="card-badge">Speed</span>
+            <div class="card-actions">
+              <button
+                class="btn btn-primary"
+                id="speed-learn-btn"
+                onclick="showToast('Exploring Speed Performance ⚡')"
+              >
+                Learn More
+              </button>
+              <button
+                class="btn btn-outline"
+                id="speed-save-btn"
+                onclick="showToast('Saved to your list ✓')"
+              >
+                Save
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="flex-card" role="listitem">
+            <span class="card-icon" aria-hidden="true">🎨</span>
+            <h3 class="card-title">Clean Design</h3>
+            <p class="card-desc">
+              Pixel-perfect interfaces with consistent spacing, thoughtful typography, and a visual hierarchy that guides the user naturally.
+            </p>
+            <span class="card-badge">Design</span>
+            <div class="card-actions">
+              <button
+                class="btn btn-primary"
+                id="design-learn-btn"
+                onclick="showToast('Exploring Clean Design 🎨')"
+              >
+                Learn More
+              </button>
+              <button
+                class="btn btn-outline"
+                id="design-save-btn"
+                onclick="showToast('Saved to your list ✓')"
+              >
+                Save
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="flex-card" role="listitem">
+            <span class="card-icon" aria-hidden="true">📱</span>
+            <h3 class="card-title">Fully Responsive</h3>
+            <p class="card-desc">
+              Mobile-first layouts that adapt fluidly across any device — phone, tablet, or widescreen desktop without breaking.
+            </p>
+            <span class="card-badge">Responsive</span>
+            <div class="card-actions">
+              <button
+                class="btn btn-primary"
+                id="responsive-learn-btn"
+                onclick="showToast('Exploring Responsive Design 📱')"
+              >
+                Learn More
+              </button>
+              <button
+                class="btn btn-outline"
+                id="responsive-save-btn"
+                onclick="showToast('Saved to your list ✓')"
+              >
+                Save
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /.flex-row -->
+      </div>
+    </section>
+
+    <hr class="section-divider" aria-hidden="true" />
+
+    <!-- ════════════════════════════════════════
+         SECTION 2 — CSS GRID CHALLENGE
+    ════════════════════════════════════════ -->
+    <section id="grid" class="section section--alt" aria-labelledby="grid-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" aria-hidden="true">Exercise 02</span>
+          <h2 class="section-title" id="grid-heading">CSS Grid Gallery</h2>
+          <p class="section-desc">
+            A responsive dashboard gallery built with CSS Grid. Eight skill cards with two spanning items and automatic reflow across all screen sizes.
+          </p>
+        </div>
+
+        <!-- Grid Gallery -->
+        <div class="grid-gallery" role="list">
+
+          <!-- Item 1 — spans 2 columns -->
+          <article class="grid-card grid-card--span" role="listitem">
+            <span class="grid-icon" aria-hidden="true">🖥️</span>
+            <h3 class="grid-title">Web Design</h3>
+            <p class="grid-sub">Pixel-perfect interfaces</p>
+            <button
+              class="btn btn-primary btn--sm"
+              id="grid-webdesign-btn"
+              onclick="showToast('Exploring Web Design 🖥️')"
+            >
+              Explore
+            </button>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="grid-card" role="listitem">
+            <span class="grid-icon" aria-hidden="true">📦</span>
+            <h3 class="grid-title">Packaging</h3>
+            <p class="grid-sub">Brand identity systems</p>
+            <button
+              class="btn btn-primary btn--sm"
+              id="grid-packaging-btn"
+              onclick="showToast('Exploring Packaging 📦')"
+            >
+              Explore
+            </button>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="grid-card" role="listitem">
+            <span class="grid-icon" aria-hidden="true">🔐</span>
+            <h3 class="grid-title">Security</h3>
+            <p class="grid-sub">End-to-end encryption</p>
+            <button
+              class="btn btn-primary btn--sm"
+              id="grid-security-btn"
+              onclick="showToast('Exploring Security 🔐')"
+            >
+              Explore
+            </button>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="grid-card" role="listitem">
+            <span class="grid-icon" aria-hidden="true">📊</span>
+            <h3 class="grid-title">Analytics</h3>
+            <p class="grid-sub">Data-driven insights</p>
+            <button
+              class="btn btn-primary btn--sm"
+              id="grid-analytics-btn"
+              onclick="showToast('Exploring Analytics 📊')"
+            >
+              Explore
+            </button>
+          </article>
+
+          <!-- Item 5 — spans 2 columns -->
+          <article class="grid-card grid-card--span" role="listitem">
+            <span class="grid-icon" aria-hidden="true">🚀</span>
+            <h3 class="grid-title">Deployment</h3>
+            <p class="grid-sub">CI/CD pipelines &amp; instant deploy</p>
+            <button
+              class="btn btn-primary btn--sm"
+              id="grid-deploy-btn"
+              onclick="showToast('Exploring Deployment 🚀')"
+            >
+              Explore
+            </button>
+          </article>
+
+          <!-- Item 6 -->
+          <article class="grid-card" role="listitem">
+            <span class="grid-icon" aria-hidden="true">🤝</span>
+            <h3 class="grid-title">Collaboration</h3>
+            <p class="grid-sub">Real-time teamwork</p>
+            <button
+              class="btn btn-primary btn--sm"
+              id="grid-collab-btn"
+              onclick="showToast('Exploring Collaboration 🤝')"
+            >
+              Explore
+            </button>
+          </article>
+
+          <!-- Item 7 -->
+          <article class="grid-card" role="listitem">
+            <span class="grid-icon" aria-hidden="true">🌐</span>
+            <h3 class="grid-title">Global CDN</h3>
+            <p class="grid-sub">Low-latency worldwide</p>
+            <button
+              class="btn btn-primary btn--sm"
+              id="grid-cdn-btn"
+              onclick="showToast('Exploring Global CDN 🌐')"
+            >
+              Explore
+            </button>
+          </article>
+
+          <!-- Item 8 -->
+          <article class="grid-card" role="listitem">
+            <span class="grid-icon" aria-hidden="true">🛠️</span>
+            <h3 class="grid-title">Dev Tools</h3>
+            <p class="grid-sub">Modern toolchain</p>
+            <button
+              class="btn btn-primary btn--sm"
+              id="grid-devtools-btn"
+              onclick="showToast('Exploring Dev Tools 🛠️')"
+            >
+              Explore
+            </button>
+          </article>
+
+        </div><!-- /.grid-gallery -->
+      </div>
+    </section>
+
+    <hr class="section-divider" aria-hidden="true" />
+
+    <!-- ════════════════════════════════════════
+         SECTION 3 — ANIMATION CHALLENGE
+    ════════════════════════════════════════ -->
+    <section id="animations" class="section" aria-labelledby="animations-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" aria-hidden="true">Exercise 03</span>
+          <h2 class="section-title" id="animations-heading">Animation Showcase</h2>
+          <p class="section-desc">
+            Five polished, professional animation components — each demonstrating a distinct CSS technique. All interactive and accessible.
+          </p>
+        </div>
+
+        <div class="anim-grid">
+
+          <!-- 1. Button Hover Animation -->
+          <div class="anim-box">
+            <h3 class="anim-label">Button Hover</h3>
+            <p class="anim-desc">Transform + scale + overlay effect on hover.</p>
+            <button
+              class="btn-hover-demo"
+              id="btn-hover-demo"
+              onclick="showToast('Get Started clicked! 🎉')"
+            >
+              Get Started →
+            </button>
+          </div>
+
+          <!-- 2. Loading Spinner -->
+          <div class="anim-box">
+            <h3 class="anim-label">Loading Spinner</h3>
+            <p class="anim-desc">CSS @keyframes spin with pulsing text label.</p>
+            <div class="spinner-wrap">
+              <div class="spinner" id="spinner-el" role="status" aria-label="Loading"></div>
+              <span class="spinner-text" id="spinner-text" aria-live="polite">Loading…</span>
+            </div>
+            <button
+              class="btn btn-primary btn--sm"
+              id="spinner-toggle-btn"
+              onclick="toggleSpinner()"
+            >
+              Toggle Spinner
+            </button>
+          </div>
+
+          <!-- 3. Fade-In Reveal -->
+          <div class="anim-box">
+            <h3 class="anim-label">Fade-In Reveal</h3>
+            <p class="anim-desc">Staggered opacity + translateX animation bars.</p>
+            <div class="fade-demo" id="fade-demo" aria-label="Fade animation bars">
+              <div class="fade-bar" style="--delay: 0.1s; --width: 90%"></div>
+              <div class="fade-bar" style="--delay: 0.25s; --width: 75%"></div>
+              <div class="fade-bar" style="--delay: 0.4s; --width: 58%"></div>
+              <div class="fade-bar" style="--delay: 0.55s; --width: 42%"></div>
+            </div>
+            <button
+              class="btn btn-primary btn--sm"
+              id="replay-fade-btn"
+              onclick="restartFade()"
+            >
+              Replay ↺
+            </button>
+          </div>
+
+          <!-- 4. Card Lift Effect -->
+          <div class="anim-box">
+            <h3 class="anim-label">Card Lift Effect</h3>
+            <p class="anim-desc">TranslateY + rotate + deep shadow on hover.</p>
+            <div
+              class="lift-card"
+              role="button"
+              tabindex="0"
+              aria-label="Hover or click this card to lift it"
+              onclick="showToast('Card lifted! ✨')"
+              onkeydown="if(event.key==='Enter') showToast('Card lifted! ✨')"
+            >
+              <div class="lift-tag">Featured</div>
+              <div class="lift-title">Hover to lift me ↑</div>
+            </div>
+            <button
+              class="btn btn-primary btn--sm"
+              id="lift-details-btn"
+              onclick="showToast('Viewing card details →')"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- 5. Animated Underline Nav — spans full width -->
+          <div class="anim-box anim-box--full">
+            <h3 class="anim-label">Animated Underline Nav</h3>
+            <p class="anim-desc">Pseudo-element width animates from 0 to 100% on hover.</p>
+            <nav class="underline-nav" aria-label="Example navigation">
+              <a href="#" class="underline-link" onclick="showToast('Home clicked'); return false;">Home</a>
+              <a href="#" class="underline-link" onclick="showToast('About clicked'); return false;">About</a>
+              <a href="#" class="underline-link" onclick="showToast('Projects clicked'); return false;">Projects</a>
+              <a href="#" class="underline-link" onclick="showToast('Services clicked'); return false;">Services</a>
+              <a href="#" class="underline-link" onclick="showToast('Contact clicked'); return false;">Contact</a>
+            </nav>
+            <button
+              class="btn btn-primary btn--sm"
+              id="open-menu-btn"
+              onclick="showToast('Menu opened! 🍔')"
+            >
+              Open Menu
+            </button>
+          </div>
+
+        </div><!-- /.anim-grid -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p class="footer-text">
+        Built for <strong>WeIntern Week 1 · Task 3</strong> — HTML, CSS &amp; Vanilla JS only.
+      </p>
+      <p class="footer-sub">CSS Challenge · Flexbox · Grid · Animations</p>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════
+       TOAST NOTIFICATION
+  ════════════════════════════════════════ -->
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <!-- Main Script -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
