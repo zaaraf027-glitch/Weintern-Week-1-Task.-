@@ -87,6 +87,22 @@ business-landing-page/
 
 ---
 
+## 📸 Screenshots
+
+### Desktop View (Hero)
+![Desktop View](screenshots/landing-desktop.png)
+
+### Mobile View (Hero)
+![Mobile View](screenshots/landing-mobile.jpg)
+
+### Services Section (Engineered for Scale)
+![Services](screenshots/landing-services.png)
+
+### Contact / Footer
+![Contact](screenshots/landing-contact.png)
+
+---
+
 ## 🚀 Getting Started
 
 ### Option 1 — Open directly
