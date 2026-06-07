@@ -61,13 +61,13 @@ portfolio-website/
 
 | View | Preview |
 |------|---------|
-##| Desktop Home |
+## Desktop Home 
 ![Desktop](screenshots/portfolio-home-desktop.png) |
-##| Mobile Home |
+## Mobile Home 
 ![Mobile](screenshots/portfolio-home-mobile.png) |
-##| Projects Page |
+## Projects Page 
 ![Projects](screenshots/portfolio-projects.png) |
-##| Contact Page | 
+## Contact Page 
 ![Contact](screenshots/portfolio-contact.png) |
 
 ---
