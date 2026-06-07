@@ -150,7 +150,7 @@ css-challenge/
 ## 👤 Author
 
 **Zaara Firdaus**
-WeIntern Web Development Intern — Batch 2025
+WeIntern Web Development Intern — Batch 2026
 
 ---
 
