@@ -117,17 +117,19 @@ css-challenge/
 | **Underline Nav** | `::after` `width: 0 → 100%` with `cubic-bezier` transition |
 
 ---
-
 ## 📸 Screenshots
 
-> Add screenshots to the `screenshots/` folder after capturing them.
+### Flexbox — Desktop
+![Flexbox Desktop](screenshots/flex-desktop.png)
 
-| View | File |
-|---|---|
-| Flexbox — Desktop | `screenshots/flex-desktop.png` |
-| Flexbox — Mobile | `screenshots/flex-mobile.png` |
-| Grid Gallery | `screenshots/grid-layout.png` |
-| Animation Demo | `screenshots/animation-demo.png` |
+### Flexbox — Mobile
+![Flexbox Mobile](screenshots/flex-mobile.png)
+
+### Grid Gallery
+![Grid Gallery](screenshots/grid-layout.png)
+
+### Animation Demo
+![Animation Demo](screenshots/animation-demo.png)
 
 **How to capture:**
 - Open Chrome DevTools → Toggle Device Toolbar (`Ctrl+Shift+M`) for mobile view
