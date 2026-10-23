@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Zaara Firdaus</title>
+  <meta name="description" content="Explore selected web development projects crafted by Zaara Firdaus, featuring clean architecture and responsive user interfaces." />
+
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION BAR ── -->
+  <header class="navbar" id="siteHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Zaara Firdaus Home">
+        ZF<span class="logo-dot">.</span>
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link active">Projects</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main>
+    <section class="hero-section" style="padding: 4rem 0 3rem;">
+      <div class="container">
+        <div class="role-pill">
+          <span class="role-pill-dot" aria-hidden="true"></span>
+          <span>Portfolio Archive</span>
+        </div>
+        <h1 class="hero-headline" style="font-size: 2.5rem; margin-bottom: 1rem;">
+          Selected Works &amp; Applications
+        </h1>
+        <p class="hero-bio" style="max-width: 650px; margin-bottom: 0;">
+          A collection of projects demonstrating clean code, thoughtful interface design, and modern web engineering.
+        </p>
+      </div>
+    </section>
+
+    <section class="projects-section" style="border-bottom: none;">
+      <div class="container">
+        <div class="projects-grid">
+          <!-- Hospital Appointment System -->
+          <article class="project-card">
+            <div class="card-media-wrapper">
+              <img
+                src="assets/images/hospital appoinment.png"
+                alt="Hospital Appointment System application preview"
+                class="card-media"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Hospital Appointment System</h3>
+              <p class="card-desc">
+                A healthcare application for booking appointments and managing hospital visits.
+              </p>
+              <div class="card-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Tailwind CSS</span>
+              </div>
+              <div class="card-actions">
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-primary">
+                  Live Demo <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-outline">
+                  Source Code <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- YUGEN E-commerce -->
+          <article class="project-card">
+            <div class="card-media-wrapper">
+              <img
+                src="assets/images/yugen.png"
+                alt="YUGEN clothing e-commerce platform preview"
+                class="card-media"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">YUGEN E-commerce</h3>
+              <p class="card-desc">
+                A modern clothing e-commerce platform with a clean and minimal user interface.
+              </p>
+              <div class="card-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Prisma</span>
+              </div>
+              <div class="card-actions">
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-primary">
+                  Live Demo <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-outline">
+                  Source Code <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Smart City AQI Monitoring -->
+          <article class="project-card">
+            <div class="card-media-wrapper">
+              <img
+                src="assets/images/smart-city-aqi.jpg"
+                alt="Smart City AQI air-quality monitoring dashboard preview"
+                class="card-media"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Smart City AQI Monitoring</h3>
+              <p class="card-desc">
+                An air-quality monitoring dashboard with interactive maps and AI-powered insights.
+              </p>
+              <div class="card-tags">
+                <span class="tag">React</span>
+                <span class="tag">Leaflet</span>
+                <span class="tag">Gemini</span>
+                <span class="tag">Tailwind CSS</span>
+              </div>
+              <div class="card-actions">
+                <a href="https://pollutree-monitor.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-primary">
+                  Live Demo <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-outline">
+                  Source Code <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <a href="index.html" class="footer-logo" aria-label="Zaara Firdaus Home">
+        ZF<span class="logo-dot">.</span>
+      </a>
+
+      <div class="footer-copy">
+        © 2026 Zaara Firdaus. All rights reserved.
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub Profile" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/zaara-firdaus-22272a3a5" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn Profile" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="X Profile" title="X">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+          </svg>
+        </a>
+        <button type="button" class="footer-social-link email-copy-trigger" aria-label="Copy email address" title="Copy email address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
+    <span class="toast-icon" id="toastIcon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </span>
+    <span class="toast-text" id="toastText">Email copied: zaaraf027@gmail.com</span>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

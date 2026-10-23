@@ -1,148 +1,182 @@
-/* ============================================
-   ZAARA FIRDAUS — PORTFOLIO SCRIPTS
-   script.js  (Fixed & Refactored)
-   ============================================ */
+/* ==========================================================
+   ZAARA FIRDAUS — PORTFOLIO JAVASCRIPT
+   Clean, Accessible, Modular Interactive Logic
+   ========================================================== */
 
-/* ── 1. MOBILE NAV TOGGLE ── */
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks  = document.querySelector('.nav-links');
+document.addEventListener('DOMContentLoaded', () => {
 
-if (navToggle && navLinks) {
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    // Animate hamburger spans
-    const spans = navToggle.querySelectorAll('span');
-    navLinks.classList.contains('open')
-      ? spans.forEach((s, i) => {
-          if (i === 0) s.style.transform = 'translateY(7px) rotate(45deg)';
-          if (i === 1) s.style.opacity = '0';
-          if (i === 2) s.style.transform = 'translateY(-7px) rotate(-45deg)';
-        })
-      : spans.forEach(s => {
-          s.style.transform = '';
-          s.style.opacity = '';
-        });
-  });
+  /* ── 1. THEME TOGGLE (LIGHT / DARK) ── */
+  const themeToggle = document.getElementById('themeToggle');
+  const htmlRoot = document.documentElement;
 
-  // Close nav when a link is clicked
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.querySelectorAll('span').forEach(s => {
-        s.style.transform = '';
-        s.style.opacity = '';
+  // Initialize theme from localStorage or system preference
+  const savedTheme = localStorage.getItem('zf_portfolio_theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+  htmlRoot.setAttribute('data-theme', currentTheme);
+  updateThemeButtonAria(currentTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const activeTheme = htmlRoot.getAttribute('data-theme');
+      const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+
+      htmlRoot.setAttribute('data-theme', newTheme);
+      localStorage.setItem('zf_portfolio_theme', newTheme);
+      updateThemeButtonAria(newTheme);
+
+      showToast(`Switched to ${newTheme} mode`);
+    });
+  }
+
+  function updateThemeButtonAria(theme) {
+    if (!themeToggle) return;
+    const label = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+    themeToggle.setAttribute('aria-label', label);
+    themeToggle.setAttribute('title', label);
+  }
+
+
+  /* ── 2. MOBILE NAVIGATION MENU ── */
+  const navToggle = document.getElementById('navToggle');
+  const navMenu   = document.getElementById('navMenu');
+
+  if (navToggle && navMenu) {
+    const toggleMenu = (open) => {
+      const isOpen = open !== undefined ? open : !navMenu.classList.contains('open');
+      navToggle.classList.toggle('open', isOpen);
+      navMenu.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen.toString());
+      document.body.style.overflow = isOpen && window.innerWidth <= 768 ? 'hidden' : '';
+    };
+
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close when clicking any nav link
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggleMenu(false);
       });
     });
-  });
-}
 
-
-/* ── 2. ACTIVE NAV LINK ON SCROLL ── */
-const sections = document.querySelectorAll('section[id]');
-const navItems = document.querySelectorAll('.nav-links a[href^="#"]');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 120) {
-      current = section.id;
-    }
-  });
-
-  navItems.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
-  });
-}, { passive: true });
-
-
-/* ── 3. STAGGERED SCROLL ANIMATIONS ── */
-const animateOnScroll = (selector) => {
-  const elements = document.querySelectorAll(selector);
-  if (!elements.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => {
-          entry.target.style.opacity    = '1';
-          entry.target.style.transform  = 'translateY(0)';
-        }, delay);
-        observer.unobserve(entry.target);
+    // Close when clicking outside of navbar
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+        toggleMenu(false);
       }
     });
-  }, { threshold: 0.1 });
 
-  elements.forEach((el, index) => {
-    el.style.opacity    = '0';
-    el.style.transform  = 'translateY(25px)';
-    el.style.transition = `opacity 0.6s cubic-bezier(0.16,1,0.3,1) ${index * 0.1}s,
-                            transform 0.6s cubic-bezier(0.16,1,0.3,1) ${index * 0.1}s`;
-    observer.observe(el);
-  });
-};
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        toggleMenu(false);
+      }
+    });
 
-animateOnScroll('.project-card');
-animateOnScroll('.glass-card');
-animateOnScroll('.tech-badge');
-animateOnScroll('.comm-card');
+    // Reset overflow on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navMenu.classList.contains('open')) {
+        toggleMenu(false);
+      }
+    });
+  }
 
 
-/* ── 4. CONTACT FORM SUBMIT ── */
-const sendBtn = document.querySelector('.btn-send');
+  /* ── 3. TOAST NOTIFICATION HELPER ── */
+  let toastTimer = null;
+  function showToast(message) {
+    const toast = document.getElementById('toastNotification');
+    const toastText = document.getElementById('toastText');
+    if (!toast) return;
 
-if (sendBtn) {
-  sendBtn.addEventListener('click', () => {
-    const name    = document.getElementById('name')?.value.trim();
-    const email   = document.getElementById('email')?.value.trim();
-    const subject = document.getElementById('subject')?.value.trim();
-    const message = document.getElementById('message')?.value.trim();
-
-    if (!name || !email) {
-      alert('Please fill in your name and email.');
-      return;
+    if (toastText) {
+      toastText.textContent = message;
     }
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      alert('Please enter a valid email address.');
-      return;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+
+  /* ── 4. EMAIL COPY TRIGGER ── */
+  const emailTriggers = document.querySelectorAll('.email-copy-trigger');
+  const emailAddress = 'zaaraf027@gmail.com';
+
+  const copyEmail = (e) => {
+    if (e) e.preventDefault();
+
+    const onSuccess = () => {
+      showToast(`Email copied: ${emailAddress}`);
+    };
+
+    const onFallback = () => {
+      // Fallback using textarea
+      const tempArea = document.createElement('textarea');
+      tempArea.value = emailAddress;
+      tempArea.style.position = 'fixed';
+      tempArea.style.opacity = '0';
+      document.body.appendChild(tempArea);
+      tempArea.select();
+      try {
+        document.execCommand('copy');
+        onSuccess();
+      } catch (err) {
+        showToast(`Email: ${emailAddress}`);
+      }
+      document.body.removeChild(tempArea);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(emailAddress).then(onSuccess).catch(onFallback);
+    } else {
+      onFallback();
     }
+  };
 
-    // Success feedback
-    sendBtn.textContent = '✓ Message Sent!';
-    sendBtn.style.background  = '#10b981';
-    sendBtn.style.boxShadow   = '0 4px 15px rgba(16,185,129,0.3)';
-    sendBtn.disabled = true;
-
-    // Reset after 3 s
-    setTimeout(() => {
-      ['name','email','subject','message'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.value = '';
-      });
-      sendBtn.textContent      = 'Send Message';
-      sendBtn.style.background = '';
-      sendBtn.style.boxShadow  = '';
-      sendBtn.disabled = false;
-    }, 3000);
+  emailTriggers.forEach(btn => {
+    btn.addEventListener('click', copyEmail);
   });
-}
 
 
-/* ── 5. SMOOTH SCROLL FOR ALL ANCHOR LINKS ── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href === '#') return; // skip bare '#' links
-    const target = document.querySelector(href);
-    if (target) {
+  /* ── 5. ACTIVE NAV LINK DETECTION ── */
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath || ((currentPath === '' || currentPath === 'index.html') && linkPath === 'index.html')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+
+
+  /* ── 6. CONTACT FORM SUBMISSION ── */
+  const contactForm = document.getElementById('contactForm');
+  const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+
+  if (contactForm && contactSubmitBtn) {
+    contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
+      const originalHTML = contactSubmitBtn.innerHTML;
+      contactSubmitBtn.disabled = true;
+      contactSubmitBtn.innerHTML = '✓ Message Sent!';
+      showToast('Thank you! Your message has been sent.');
+
+      setTimeout(() => {
+        contactSubmitBtn.innerHTML = originalHTML;
+        contactSubmitBtn.disabled = false;
+        contactForm.reset();
+      }, 2500);
+    });
+  }
+
 });

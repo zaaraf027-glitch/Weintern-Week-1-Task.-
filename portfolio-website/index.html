@@ -1,276 +1,455 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zaara Firdaus — Full Stack Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <title>Zaara Firdaus — Frontend Developer</title>
+  <meta name="description" content="Personal portfolio of Zaara Firdaus, a BCA student and frontend developer crafting minimal, accessible, and responsive web experiences." />
+
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ── ANIMATED BACKGROUND ── -->
-  <div class="mesh-background">
-    <div class="mesh-sphere sphere-1"></div>
-    <div class="mesh-sphere sphere-2"></div>
-  </div>
+  <!-- ── 1. NAVIGATION BAR ── -->
+  <header class="navbar" id="siteHeader">
+    <div class="container nav-container">
+      <!-- Text Logo: ZF. in elegant serif -->
+      <a href="index.html" class="nav-logo" aria-label="Zaara Firdaus Home">
+        ZF<span class="logo-dot">.</span>
+      </a>
 
-  <!-- ── NAVIGATION ── -->
-  <nav class="glass-nav">
-    <a href="#hero" class="nav-logo">DevPortfolio</a>
-    <ul class="nav-links">
-      <li><a href="#hero" class="active">Home</a></li>
-      <li><a href="#portfolio">Projects</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#">Resume</a></li>
-    </ul>
-    <!-- Mobile hamburger -->
-    <button class="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+      <!-- Desktop & Mobile Navigation Links -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
 
-  <!-- ── HERO ── -->
-  <section id="hero" class="hero-section">
-    <div class="hero-container">
-      <div class="hero-content">
-        <h1 class="hero-title">
-          Hi, I'm <span class="gradient-text">Zaara Firdaus</span>
-        </h1>
-        <p class="hero-subtitle">
-          Full Stack Developer. I build clean, responsive web experiences with technical precision.
-        </p>
-        <div class="hero-btns">
-          <a href="#portfolio" class="btn-primary">View My Work →</a>
-          <a href="#" class="btn-secondary">Download Resume</a>
-        </div>
+      <!-- Nav Actions (Theme Toggle & Mobile Menu Button) -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle theme">
+          <!-- Moon Icon (Light mode default) -->
+          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sun Icon (Dark mode active) -->
+          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- ── ABOUT ── -->
-  <section id="about" class="section-container">
-    <div class="about-grid">
+  <!-- ── 2. HERO SECTION ── -->
+  <main>
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <!-- Left Column: Introduction -->
+        <div class="hero-content">
+          <!-- Small Outlined Pill -->
+          <div class="role-pill">
+            <span class="role-pill-dot" aria-hidden="true"></span>
+            <span>Frontend Developer</span>
+          </div>
 
-      <!-- Left column: Bio + Education -->
-      <div class="about-left-col">
+          <!-- Main Headline -->
+          <h1 class="hero-headline">
+            Hi, I'm <span class="name-accent">Zaara Firdaus</span>.<br />
+            <span class="headline-sub">I build clean and responsive web experiences.</span>
+          </h1>
 
-        <!-- Bio Card -->
-        <div class="glass-card bio-card">
-          <div class="section-tag">Who I Am</div>
-          <h2 class="section-title" style="margin-bottom:1.2rem">About Me</h2>
-          <p class="about-text">
-            I am a developer who believes in the intersection of technical robustness and accessible design.
-            My approach centers on creating user interfaces that are not only visually polished but also
-            fundamentally inclusive and performance-optimized.
+          <!-- Supporting Paragraph -->
+          <p class="hero-bio">
+            A BCA student and frontend developer, passionate about creating simple, accessible and user-friendly web applications using modern technologies.
           </p>
+
+          <!-- Buttons -->
+          <div class="hero-actions">
+            <a href="projects.html" class="btn btn-primary">
+              View My Projects <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="contact.html" class="btn btn-secondary">
+              Contact Me
+            </a>
+          </div>
+
+          <!-- Minimalist Social Icons -->
+          <div class="hero-socials">
+            <!-- GitHub -->
+            <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile" title="GitHub">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/zaara-firdaus-22272a3a5" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+
+            <!-- X (Twitter) -->
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="X Profile" title="X">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+              </svg>
+            </a>
+
+            <!-- Email -->
+            <button type="button" class="social-icon-btn email-copy-trigger" id="quickEmailBtn" aria-label="Copy email address" title="Copy email address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <!-- Education Card -->
-        <div class="glass-card education-card">
-          <h3 class="card-inner-title">Education</h3>
-          <div class="education-item">
-            <div class="edu-icon-wrapper">
-              <span class="edu-card-icon">🎓</span>
-            </div>
-            <div class="edu-details">
-              <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-              <div class="edu-status">Currently Pursuing</div>
-              <div class="edu-institution">Mahatma Gandhi Kashi Vidyapeeth</div>
-              <div class="edu-timeline">2024 – 2027</div>
-            </div>
-          </div>
-        </div>
+        <!-- Right Column: Decorative Composition -->
+        <div class="hero-composition">
+          <!-- Soft Lavender Organic Background Shape -->
+          <div class="hero-shape-backdrop" aria-hidden="true"></div>
 
-      </div>
+          <!-- Elegant Visual Composition Card -->
+          <div class="hero-image-card">
+            <img
+              src="assets/images/hero-workspace.jpg"
+              alt="Workspace desk composition with laptop, coffee mug, notebook, and delicate botanical line-art"
+              class="hero-artwork"
+              loading="eager"
+            />
+          </div>
 
-      <!-- Right column: Tech Stack -->
-      <div class="glass-card tech-card-panel">
-        <div class="section-tag">Technologies</div>
-        <h2 class="section-title" style="margin-bottom:0.6rem">My Tech Stack</h2>
-        <p class="tech-panel-desc">Languages, tools and frameworks I work with.</p>
-        <div class="tech-grid">
-          <div class="tech-badge">
-            <span class="tech-badge-icon">🌐</span>
-            <span class="tech-badge-name">HTML</span>
-          </div>
-          <div class="tech-badge">
-            <span class="tech-badge-icon">🎨</span>
-            <span class="tech-badge-name">CSS</span>
-          </div>
-          <div class="tech-badge">
-            <span class="tech-badge-icon">⚡</span>
-            <span class="tech-badge-name">JavaScript</span>
-          </div>
-          <div class="tech-badge">
-            <span class="tech-badge-icon">⚙️</span>
-            <span class="tech-badge-name">C</span>
-          </div>
-          <div class="tech-badge">
-            <span class="tech-badge-icon">🔧</span>
-            <span class="tech-badge-name">C++</span>
-          </div>
-          <div class="tech-badge">
-            <span class="tech-badge-icon">🐙</span>
-            <span class="tech-badge-name">Git</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── PORTFOLIO ── -->
-  <section id="portfolio" class="section-container">
-    <div class="section-header">
-      <div class="section-tag">Portfolio</div>
-      <h2 class="section-title">Selected Works</h2>
-      <p class="section-desc">A curation of projects demonstrating problem-solving through clean code and user-centric architecture.</p>
-    </div>
-
-    <div class="projects-grid">
-
-      <!-- HER CYCLE -->
-      <div class="project-card"
-           onclick="window.open('https://hercycle-ai.vercel.app/', '_blank')"
-           title="Click to view HER CYCLE live demo">
-        <div class="project-thumb-placeholder bg-indigo-gradient">
-          <span class="placeholder-icon">🩷</span>
-        </div>
-        <div class="project-body">
-          <div class="project-tags">
-            <span class="tag teal">AI / ML</span>
-            <span class="tag">Health Tech</span>
-            <span class="tag">Full Stack</span>
-          </div>
-          <div class="project-name">
-            <a href="https://hercycle-ai.vercel.app/" target="_blank"
-               onclick="event.stopPropagation();">HER CYCLE ↗</a>
-          </div>
-          <p class="project-desc">
-            An AI-powered menstrual health companion that provides smart cycle tracking,
-            predictions, and personalized wellness insights.
-          </p>
-          <div class="project-links">
-            <a href="https://hercycle-ai.vercel.app/" target="_blank"
-               onclick="event.stopPropagation();" class="btn-card-link">Live Demo ↗</a>
-          </div>
+          <!-- Delicate Botanical Line-Art SVG Accent -->
+          <svg class="hero-botanical-accent" width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20,90 Q40,60 60,30 Q70,15 80,10"></path>
+            <path d="M42,57 C35,52 30,42 36,36 C42,30 50,38 48,48"></path>
+            <path d="M55,37 C65,33 72,40 68,48 C64,55 56,50 55,37"></path>
+            <path d="M68,20 C76,16 82,22 78,28 C74,34 68,30 68,20"></path>
+          </svg>
         </div>
       </div>
+    </section>
 
-      <!-- Smart City AQI Monitor -->
-      <div class="project-card"
-           onclick="window.open('https://pollutree-monitor.vercel.app/', '_blank')"
-           title="Click to view Smart City AQI Monitor live demo">
-        <div class="project-thumb-placeholder bg-cyan-gradient">
-          <span class="placeholder-icon">🌿</span>
-        </div>
-        <div class="project-body">
-          <div class="project-tags">
-            <span class="tag teal">IoT</span>
-            <span class="tag">Data Viz</span>
-            <span class="tag">Environment</span>
-          </div>
-          <div class="project-name">
-            <a href="https://pollutree-monitor.vercel.app/" target="_blank"
-               onclick="event.stopPropagation();">Smart City AQI Monitor ↗</a>
-          </div>
-          <p class="project-desc">
-            A real-time Air Quality Index monitoring dashboard for smart cities with
-            interactive maps and pollution trend analytics.
-          </p>
-          <div class="project-links">
-            <a href="https://pollutree-monitor.vercel.app/" target="_blank"
-               onclick="event.stopPropagation();" class="btn-card-link">Live Demo ↗</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── CONTACT ── -->
-  <section id="contact" class="section-container">
-    <div class="contact-panel-container glass-card">
-      <div class="contact-header">
-        <div class="section-tag">Say Hello</div>
-        <h2 class="contact-title">Get In Touch</h2>
-        <p class="contact-subtitle">
-          I'm always open to discussing new projects, creative ideas, or opportunities
-          to be part of your visions.
-        </p>
-      </div>
-
-      <div class="contact-content-grid">
-
-        <!-- Contact info -->
-        <div class="comm-details">
-          <a href="mailto:zaaraf027@gmail.com" class="comm-card">
-            <div class="comm-icon-wrapper">✉️</div>
-            <div class="comm-info">
-              <span class="comm-label">Email</span>
-              <span class="comm-value">zaaraf027@gmail.com</span>
-            </div>
-          </a>
-          <a href="https://www.linkedin.com/in/zaara-firdaus-22272a3a5" target="_blank" class="comm-card">
-            <div class="comm-icon-wrapper">💼</div>
-            <div class="comm-info">
-              <span class="comm-label">LinkedIn</span>
-              <span class="comm-value">zaara-firdaus-22272a3a5</span>
-            </div>
-          </a>
-          <a href="https://github.com/zaaraf027-glitch" target="_blank" class="comm-card">
-            <div class="comm-icon-wrapper">💻</div>
-            <div class="comm-info">
-              <span class="comm-label">GitHub</span>
-              <span class="comm-value">zaaraf027-glitch</span>
-            </div>
+    <!-- ── 3. FEATURED PROJECTS SECTION ── -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        <!-- Section Header Row -->
+        <div class="section-header-row">
+          <h2 class="section-title">Featured Projects</h2>
+          <a href="projects.html" class="view-all-link">
+            View all projects <span class="link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
 
-        <!-- Contact form -->
-        <div class="contact-form-panel">
-          <div class="form-row">
-            <div class="input-group">
-              <label for="name">Name</label>
-              <input id="name" type="text" placeholder="John Doe" />
+        <!-- Three-Column Projects Grid -->
+        <div class="projects-grid">
+          <!-- Project 1: Hospital Appointment System -->
+          <article class="project-card">
+            <div class="card-media-wrapper">
+              <img
+                src="assets/images/hospital appoinment.png"
+                alt="Hospital Appointment System application preview"
+                class="card-media"
+                loading="lazy"
+              />
             </div>
-            <div class="input-group">
-              <label for="email">Email</label>
-              <input id="email" type="email" placeholder="john@example.com" />
+            <div class="card-body">
+              <h3 class="card-title">Hospital Appointment System</h3>
+              <p class="card-desc">
+                A healthcare application for booking appointments and managing hospital visits.
+              </p>
+              <div class="card-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Tailwind CSS</span>
+              </div>
+              <div class="card-actions">
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-primary">
+                  Live Demo <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-outline">
+                  Source Code <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
+          </article>
+
+          <!-- Project 2: YUGEN E-commerce -->
+          <article class="project-card">
+            <div class="card-media-wrapper">
+              <img
+                src="assets/images/yugen.png"
+                alt="YUGEN clothing e-commerce platform preview"
+                class="card-media"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">YUGEN E-commerce</h3>
+              <p class="card-desc">
+                A modern clothing e-commerce platform with a clean and minimal user interface.
+              </p>
+              <div class="card-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Prisma</span>
+              </div>
+              <div class="card-actions">
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-primary">
+                  Live Demo <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-outline">
+                  Source Code <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Smart City AQI Monitoring -->
+          <article class="project-card">
+            <div class="card-media-wrapper">
+              <img
+                src="assets/images/smart-city-aqi.jpg"
+                alt="Smart City AQI air-quality monitoring dashboard preview"
+                class="card-media"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Smart City AQI Monitoring</h3>
+              <p class="card-desc">
+                An air-quality monitoring dashboard with interactive maps and AI-powered insights.
+              </p>
+              <div class="card-tags">
+                <span class="tag">React</span>
+                <span class="tag">Leaflet</span>
+                <span class="tag">Gemini</span>
+                <span class="tag">Tailwind CSS</span>
+              </div>
+              <div class="card-actions">
+                <a href="https://pollutree-monitor.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-primary">
+                  Live Demo <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="card-btn card-btn-outline">
+                  Source Code <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 4. SKILLS & TECHNOLOGIES SECTION ── -->
+    <section class="skills-section" id="skills">
+      <div class="container">
+        <!-- Centered Header -->
+        <div class="section-header-centered">
+          <div class="role-pill">
+            <span class="role-pill-dot" aria-hidden="true"></span>
+            <span>Technical Expertise</span>
           </div>
-          <div class="input-group">
-            <label for="subject">Subject</label>
-            <input id="subject" type="text" placeholder="How can I help?" />
-          </div>
-          <div class="input-group">
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Tell me about your project..."></textarea>
-          </div>
-          <button class="btn-send">Send Message</button>
+          <h2 class="section-title">Skills &amp; Technologies</h2>
+          <p class="section-subtitle">
+            A curated breakdown of the core languages, modern libraries, and developer tools I leverage to engineer responsive, accessible, and performant web solutions.
+          </p>
         </div>
 
-      </div>
-    </div>
-  </section>
+        <!-- 3-Column Skills Grid -->
+        <div class="skills-grid">
+          <!-- Category 1: Frontend & UI -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="skill-cat-title">Frontend &amp; UI</h3>
+            </div>
+            <p class="skill-cat-desc">
+              Building accessible, pixel-perfect, and semantically sound user interfaces across all device viewports.
+            </p>
+            <div class="skill-badges-list">
+              <span class="skill-badge">HTML5 (Semantic)</span>
+              <span class="skill-badge">CSS3 (Grid &amp; Flexbox)</span>
+              <span class="skill-badge">JavaScript (ES6+)</span>
+              <span class="skill-badge">TypeScript</span>
+              <span class="skill-badge">React</span>
+              <span class="skill-badge">Next.js</span>
+              <span class="skill-badge">Tailwind CSS</span>
+              <span class="skill-badge">Responsive Design</span>
+            </div>
+          </div>
 
-  <!-- ── FOOTER ── -->
-  <footer class="glass-footer">
-    <div class="footer-top">
-      <div class="footer-brand">DevPortfolio</div>
+          <!-- Category 2: Tools & Workflow -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </div>
+              <h3 class="skill-cat-title">Tools &amp; Workflow</h3>
+            </div>
+            <p class="skill-cat-desc">
+              Modern version control, bundlers, package managers, and streamlined developer toolchains.
+            </p>
+            <div class="skill-badges-list">
+              <span class="skill-badge">Git &amp; GitHub</span>
+              <span class="skill-badge">Vite</span>
+              <span class="skill-badge">npm / yarn</span>
+              <span class="skill-badge">Chrome DevTools</span>
+              <span class="skill-badge">Figma to Code</span>
+              <span class="skill-badge">Cross-Browser QA</span>
+              <span class="skill-badge">VS Code</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Fundamentals & Backend -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <h3 class="skill-cat-title">CS Fundamentals &amp; APIs</h3>
+            </div>
+            <p class="skill-cat-desc">
+              Strong theoretical computer science foundation and seamless asynchronous server integration.
+            </p>
+            <div class="skill-badges-list">
+              <span class="skill-badge">C &amp; C++</span>
+              <span class="skill-badge">Data Structures</span>
+              <span class="skill-badge">RESTful APIs</span>
+              <span class="skill-badge">JSON &amp; Fetch</span>
+              <span class="skill-badge">Node.js basics</span>
+              <span class="skill-badge">MongoDB basics</span>
+              <span class="skill-badge">Prisma ORM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 5. LET'S CONNECT BANNER ── -->
+    <section class="connect-banner-section">
+      <div class="container">
+        <div class="connect-card">
+          <div class="connect-content">
+            <div class="role-pill">
+              <span class="role-pill-dot" aria-hidden="true"></span>
+              <span>Open for Opportunities</span>
+            </div>
+            <h2 class="connect-title">Have a project in mind or looking for a frontend intern?</h2>
+            <p class="connect-desc">
+              I am actively seeking frontend developer internships and collaborative opportunities where I can contribute clean code, thoughtful UI design, and grow with an engineering team.
+            </p>
+            <div class="connect-actions">
+              <a href="contact.html" class="btn btn-primary">
+                Get In Touch <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+              <button type="button" class="btn btn-secondary email-copy-trigger">
+                Copy Email Address
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── 4. FOOTER ── -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <!-- Logo -->
+      <a href="index.html" class="footer-logo" aria-label="Zaara Firdaus Home">
+        ZF<span class="logo-dot">.</span>
+      </a>
+
+      <!-- Copyright Text -->
+      <div class="footer-copy">
+        © 2026 Zaara Firdaus. All rights reserved.
+      </div>
+
+      <!-- Footer Social Links -->
       <div class="footer-socials">
-        <a href="https://github.com/zaaraf027-glitch" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/zaara-firdaus-22272a3a5" target="_blank">LinkedIn</a>
+        <a href="https://github.com/zaaraf027-glitch" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub Profile" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/zaara-firdaus-22272a3a5" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn Profile" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="X Profile" title="X">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+          </svg>
+        </a>
+        <button type="button" class="footer-social-link email-copy-trigger" aria-label="Copy email address" title="Copy email address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </button>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2024 Zaara Firdaus. All rights reserved.</span>
-      <span class="footer-meta">Built with precision.</span>
     </div>
   </footer>
 
+  <!-- ── 5. TOAST NOTIFICATION ── -->
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
+    <span class="toast-icon" id="toastIcon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </span>
+    <span class="toast-text" id="toastText">Email copied: zaaraf027@gmail.com</span>
+  </div>
+
+  <!-- JavaScript -->
   <script src="js/script.js"></script>
 </body>
 </html>
